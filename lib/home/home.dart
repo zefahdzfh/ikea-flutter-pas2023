@@ -3,6 +3,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ikea_pas2023/alex.dart';
+import 'package:ikea_pas2023/home/components/categories.dart';
+import 'package:ikea_pas2023/home/components/collection.dart';
+import 'package:ikea_pas2023/home/components/header.dart';
+import 'package:ikea_pas2023/home/components/products.dart';
+import 'package:ikea_pas2023/inspiration.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,6 +17,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int myIndex = 0;
+
+  final List<Widget> _pages = [
+    Home(),
+    Inspiration(),
+    // Tambahkan halaman-halaman lainnya di sini
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +37,14 @@ class _HomeState extends State<Home> {
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.notifications_none_outlined,
+                LucideIcons.bell,
                 color: Color(0xff1B1B1B),
               ),
             ),
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.shopping_cart_outlined,
+                LucideIcons.shoppingCart,
                 color: Color(0xff1B1B1B),
               ),
             ),
@@ -55,7 +67,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(color: Color(0xff1B1B1B), fontSize: 16),
                       decoration: InputDecoration(
                           icon: Icon(
-                            Icons.search,
+                            LucideIcons.search,
                             color: Color(0xff1B1B1B),
                           ),
                           hintText: 'Cari barang impianmu',
@@ -113,9 +125,12 @@ class _HomeState extends State<Home> {
                             width: 24,
                           ),
                           TextButton(
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Alex() ));
-                            },
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Alex()));
+                              },
                               child: products(
                                   'assets/alex.png',
                                   'ALEX/LAGKAPTEN',
@@ -190,160 +205,46 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color(0xff0058AB),
-        selectedFontSize: 12,
-        selectedLabelStyle: TextStyle(color: Color(0xff0058AB)),
-        unselectedItemColor: Color(0xff1B1B1B),
-        unselectedFontSize: 12,
-        unselectedLabelStyle: TextStyle(color: Color(0xff6C6C6C)),
-        currentIndex: myIndex,
-        onTap: (index) {
-          setState(() {
-          myIndex = index;
-            
-          });
-        },
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Beranda',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.heart_broken_outlined),
-            label: 'Inspirasi',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.coffee_outlined),
-            label: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
-            label: 'Profil',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   selectedItemColor: Color(0xff0058AB),
+      //   selectedFontSize: 12,
+      //   selectedLabelStyle: TextStyle(color: Color(0xff0058AB)),
+      //   unselectedItemColor: Color(0xff1B1B1B),
+      //   unselectedFontSize: 12,
+      //   unselectedLabelStyle: TextStyle(color: Color(0xff6C6C6C)),
+      //   currentIndex: myIndex,
+      //   onTap: (index) {
+      //     setState(() {
+      //       myIndex = index;
+      //     });
+      //   },
+      //   items: <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       label: 'Beranda',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.heart_broken_outlined),
+      //       label: 'Inspirasi',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.coffee_outlined),
+      //       label: 'Wishlist',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person_2_outlined),
+      //       label: 'Profil',
+      //     ),
+      //   ],
+      // ),
     );
   }
 
-  Container collection(int colorCollect, String imageCollect,
-      String titleCollect, String desCollect) {
-    return Container(
-      width: 200,
-      decoration: BoxDecoration(color: Color(colorCollect)),
-      child: Column(
-        children: [
-          Image.asset(imageCollect),
-          // SizedBox(height: 12,),
-          Padding(
-            padding:
-                const EdgeInsets.only(top: 12, right: 13, left: 12, bottom: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  titleCollect,
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
-                ),
-                Text(
-                  desCollect,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400, color: Colors.white70),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  
 
-  Row header(String title) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff1B1B1B)),
-        ),
-        Text(
-          'Lihat Semua',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Color(0xff0058AB)),
-        )
-      ],
-    );
-  }
+  
 
-  Container products(String imageProduk, String namaProduk, String desProduk,
-      String hargaProduk) {
-    return Container(
-      width: 150,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(imageProduk),
-          SizedBox(
-            height: 12,
-          ),
-          Text(
-            namaProduk,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff1B1B1B),
-            ),
-          ),
-          SizedBox(
-            height: 6,
-          ),
-          Text(
-            desProduk,
-            style: TextStyle(
-                fontWeight: FontWeight.w400, color: Color(0xff6C6C6C)),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Text(
-            hargaProduk,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff1B1B1B),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Container categories(String image, String text) {
-    return Container(
-      width: 133,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(image),
-          SizedBox(
-            height: 6,
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: Color(0xff1B1B1B),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  
+  
 }

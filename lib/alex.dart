@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace, non_constant_identifier_names
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 class Alex extends StatefulWidget{
   @override
@@ -15,7 +17,7 @@ class _AlexState extends State<Alex> {
       appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back,color: Color(0xff1B1B1B),)),
+          leading: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(LucideIcons.arrowLeft,color: Color(0xff1B1B1B),)),
           title: Text('ALEX/LAGKAPTEN',style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
@@ -25,21 +27,21 @@ class _AlexState extends State<Alex> {
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.search,
+                LucideIcons.search,
                 color: Color(0xff1B1B1B),
               ),
             ),
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.share,
+                LucideIcons.share2,
                 color: Color(0xff1B1B1B),
               ),
             ),
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.shopping_cart_outlined,
+                LucideIcons.shoppingCart,
                 color: Color(0xff1B1B1B),
               ),
             ),
@@ -84,7 +86,7 @@ class _AlexState extends State<Alex> {
                             });
                           },
                         child: liked
-                          ? Image.asset('assets/hatiHitam.png')
+                          ? SvgPicture.asset('assets/heart.svg')
                           : Image.asset('assets/hatiMerah.png'),
                       )
                       ],
@@ -173,7 +175,7 @@ class _AlexState extends State<Alex> {
                     });
                   }
                 },
-                child: Icon(Icons.remove, color: Color(0xffB4B4B4)),
+                child: Icon(LucideIcons.minus, color: Color(0xffB4B4B4)),
               ),
               SizedBox(width: 16),
               Text('$Count', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
@@ -184,7 +186,7 @@ class _AlexState extends State<Alex> {
                     Count += 1;
                   });
                 },
-                child: Icon(Icons.add, color: Color(0xff0058AB)),
+                child: Icon(LucideIcons.plus, color: Color(0xff0058AB)),
               ),
               ],
             ),
