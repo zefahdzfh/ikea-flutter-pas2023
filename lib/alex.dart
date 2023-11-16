@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace, non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ikea_pas2023/components/svg.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class Alex extends StatefulWidget{
@@ -86,8 +87,8 @@ class _AlexState extends State<Alex> {
                             });
                           },
                         child: liked
-                          ? SvgPicture.asset('assets/heart.svg')
-                          : Image.asset('assets/hatiMerah.png'),
+                          ? SvgPicture.string(love)
+                          : SvgPicture.string(loved),
                       )
                       ],
                     ),
@@ -143,7 +144,7 @@ class _AlexState extends State<Alex> {
                     ),
                   ],
                 ),
-                    SizedBox(height: 200,),
+                    SizedBox(height: 50,),
                   ],
                 ),
               ),
