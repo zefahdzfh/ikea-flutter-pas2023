@@ -19,21 +19,12 @@ class _InspirationState extends State<Inspiration> {
             elevation: 0,
             leadingWidth: 500,
             backgroundColor: Colors.transparent,
-            leading: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 24),
-                  child: Text(
-                    'Temukan Inspirasi',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff1B1B1B)),
-                  ),
-                ),
-              ],
+            title: Text(
+              'Temukan Inspirasi',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff1B1B1B)),
             ),
             actions: [
               IconButton(

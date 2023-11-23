@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ikea_pas2023/home/home.dart';
 import 'package:ikea_pas2023/inspiration.dart';
+import 'package:ikea_pas2023/wishlist.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 
@@ -57,10 +58,7 @@ class _BottomNavigationBarExampleState
   static  final List<Widget> _widgetOptions = <Widget>[
     Home(),
     Inspiration(),
-    Text(
-      'Wishlist',
-      style: optionStyle,
-    ),
+    Wishlist(),
     Text(
       'Profil',
       style: optionStyle,
