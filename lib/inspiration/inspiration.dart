@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:ikea_pas2023/inspiration/components/articles.dart';
 
 class Inspiration extends StatefulWidget {
   // const Inspiration({Key? key}) :super(key: key)
@@ -208,38 +209,6 @@ class _InspirationState extends State<Inspiration> {
                             fontSize: 16,
                             color: Color(0xff6C6C6C)),
                       ),
-                      // SizedBox(
-                      //   height: 16,
-                      // ),
-                      // TextButton(
-                      //   onPressed: () {},
-                      //   child: Container(
-                      //     height: 50,
-                      //     width: 300,
-                      //     decoration: BoxDecoration(
-                      //       color: Color(0xff0058AB),
-                      //     ),
-                      //     child: Padding(
-                      //       padding: const EdgeInsets.symmetric(
-                      //           vertical: 10, horizontal: 10),
-                      //       child: Center(
-                      //         child: Row(
-                      //           children: [
-                      //             Icon(LucideIcons.arrowLeft,color: Colors.white,),
-                      //             SizedBox(width: 24,),
-                      //             Text(
-                      //               'Kembali Ke Beranda',
-                      //               style: TextStyle(
-                      //                   fontSize: 16,
-                      //                   fontWeight: FontWeight.w500,
-                      //                   color: Colors.white),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // )
                     ],
                   ),
                 ],
@@ -301,38 +270,6 @@ class _InspirationState extends State<Inspiration> {
                             fontSize: 16,
                             color: Color(0xff6C6C6C)),
                       ),
-                      // SizedBox(
-                      //   height: 16,
-                      // ),
-                      // TextButton(
-                      //   onPressed: () {},
-                      //   child: Container(
-                      //     height: 50,
-                      //     width: 300,
-                      //     decoration: BoxDecoration(
-                      //       color: Color(0xff0058AB),
-                      //     ),
-                      //     child: Padding(
-                      //       padding: const EdgeInsets.symmetric(
-                      //           vertical: 10, horizontal: 10),
-                      //       child: Center(
-                      //         child: Row(
-                      //           children: [
-                      //             Icon(LucideIcons.arrowLeft,color: Colors.white,),
-                      //             SizedBox(width: 24,),
-                      //             Text(
-                      //               'Kembali Ke Beranda',
-                      //               style: TextStyle(
-                      //                   fontSize: 16,
-                      //                   fontWeight: FontWeight.w500,
-                      //                   color: Colors.white),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // )
                     ],
                   ),
                 ],
@@ -343,28 +280,7 @@ class _InspirationState extends State<Inspiration> {
     );
   }
 
-  Container articles(String image, String title) {
-    return Container(
-      width: 200,
-      child: Column(
-        children: [
-          Image.asset(
-            image,
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff1B1B1B)),
-          )
-        ],
-      ),
-    );
-  }
+  
 
   GestureDetector categories(int index, String title) {
     return GestureDetector(

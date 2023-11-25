@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:ikea_pas2023/home/home.dart';
-import 'package:ikea_pas2023/inspiration.dart';
-import 'package:ikea_pas2023/wishlist.dart';
+import 'package:ikea_pas2023/inspiration/inspiration.dart';
+import 'package:ikea_pas2023/profile.dart';
+import 'package:ikea_pas2023/wishlist/wishlist.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 
@@ -59,10 +60,7 @@ class _BottomNavigationBarExampleState
     Home(),
     Inspiration(),
     Wishlist(),
-    Text(
-      'Profil',
-      style: optionStyle,
-    ),
+    Profile()
   ];
 
   void _onItemTapped(int index) {

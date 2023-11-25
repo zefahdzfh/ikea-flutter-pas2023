@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace, non_constant_identifier_names, prefer_is_empty
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:ikea_pas2023/wishlist_model.dart';
+import 'package:ikea_pas2023/wishlist/components/wishlist_model.dart';
 
 class Wishlist extends StatefulWidget {
   @override
@@ -126,6 +126,7 @@ class _WishlistState extends State<Wishlist> {
               Icon(LucideIcons.list),
             ],
           ),
+          SizedBox(height: 24,),
           Expanded(
             child: 
             display_products.length == 0
@@ -236,7 +237,8 @@ class _WishlistState extends State<Wishlist> {
                                     ),),
                                   ),
                                 ),
-                              )
+                              ),
+                              SizedBox(height: 24,),
                             ],
                           ),
                           Icon(LucideIcons.moreVertical,color: Color(0xff1B1B1B),)

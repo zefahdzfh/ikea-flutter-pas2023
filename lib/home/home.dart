@@ -2,12 +2,12 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ikea_pas2023/alex.dart';
+import 'package:ikea_pas2023/product_detail/alex.dart';
 import 'package:ikea_pas2023/home/components/categories.dart';
 import 'package:ikea_pas2023/home/components/collection.dart';
 import 'package:ikea_pas2023/home/components/header.dart';
 import 'package:ikea_pas2023/home/components/products.dart';
-import 'package:ikea_pas2023/inspiration.dart';
+import 'package:ikea_pas2023/inspiration/inspiration.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class Home extends StatefulWidget {
@@ -205,39 +205,6 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   selectedItemColor: Color(0xff0058AB),
-      //   selectedFontSize: 12,
-      //   selectedLabelStyle: TextStyle(color: Color(0xff0058AB)),
-      //   unselectedItemColor: Color(0xff1B1B1B),
-      //   unselectedFontSize: 12,
-      //   unselectedLabelStyle: TextStyle(color: Color(0xff6C6C6C)),
-      //   currentIndex: myIndex,
-      //   onTap: (index) {
-      //     setState(() {
-      //       myIndex = index;
-      //     });
-      //   },
-      //   items: <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Beranda',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.heart_broken_outlined),
-      //       label: 'Inspirasi',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.coffee_outlined),
-      //       label: 'Wishlist',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person_2_outlined),
-      //       label: 'Profil',
-      //     ),
-      //   ],
-      // ),
     );
   }
 
