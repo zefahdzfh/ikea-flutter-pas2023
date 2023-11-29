@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ikea_pas2023/cart.dart';
 import 'package:ikea_pas2023/product_detail/alex.dart';
 import 'package:ikea_pas2023/home/components/categories.dart';
 import 'package:ikea_pas2023/home/components/collection.dart';
@@ -42,7 +43,9 @@ class _HomeState extends State<Home> {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+              },
               icon: Icon(
                 LucideIcons.shoppingCart,
                 color: Color(0xff1B1B1B),

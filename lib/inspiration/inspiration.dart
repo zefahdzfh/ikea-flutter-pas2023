@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sized_box_for_whitespace
 import 'package:flutter/material.dart';
+import 'package:ikea_pas2023/cart.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:ikea_pas2023/inspiration/components/articles.dart';
 
@@ -36,7 +37,9 @@ class _InspirationState extends State<Inspiration> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                },
                 icon: Icon(
                   LucideIcons.shoppingCart,
                   color: Color(0xff1B1B1B),
