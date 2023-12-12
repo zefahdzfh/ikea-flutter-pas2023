@@ -64,7 +64,8 @@ class _WishlistState extends State<Wishlist> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Cart()));
               },
               icon: Icon(
                 LucideIcons.shoppingCart,
@@ -129,122 +130,152 @@ class _WishlistState extends State<Wishlist> {
               Icon(LucideIcons.list),
             ],
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           Expanded(
-            child: 
-            display_products.length == 0
+            child: display_products.length == 0
                 ? ListView(
-                  children: [
+                    children: [
                       Center(
-                        child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                      SizedBox(height: 100,),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 130,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset('assets/45.png'),
-                            Image.asset('assets/02.png'),
-                            Image.asset('assets/4 4.png')
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 48,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Ouchh...',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 32,
-                                color: Color(0xff1B1B1B)),
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            'Item Yang Anda Cari Tidak Tersedia Dalam Wishlist',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 20,
-                                color: Color(0xff1B1B1B)),
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            'Silahkan Kembali Ke Beranda Dan Ketuk "Tambahkan Ke Wishlist" Untuk Produk yang Anda Sukai',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                color: Color(0xff6C6C6C)),
-                          ),
-                        ],
-                      ),
-                  ]
-                        )
-                      ),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                            SizedBox(
+                              height: 100,
+                            ),
+                            Container(
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 130,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset('assets/45.png'),
+                                  Image.asset('assets/02.png'),
+                                  Image.asset('assets/4 4.png')
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 48,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Ouchh...',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 32,
+                                      color: Color(0xff1B1B1B)),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Text(
+                                  'Item Yang Anda Cari Tidak Tersedia Dalam Wishlist',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20,
+                                      color: Color(0xff1B1B1B)),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Text(
+                                  'Silahkan Kembali Ke Beranda Dan Ketuk "Tambahkan Ke Wishlist" Untuk Produk yang Anda Sukai',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16,
+                                      color: Color(0xff6C6C6C)),
+                                ),
+                              ],
+                            ),
+                          ])),
                     ],
-                )
-                :
-                 ListView.builder(
+                  )
+                : ListView.builder(
                     itemCount: display_products.length,
                     itemBuilder: (context, index) => ListTile(
                       contentPadding: EdgeInsets.symmetric(horizontal: 16),
                       subtitle: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(display_products[index].productImage,width: 100,),
-                          SizedBox(width: 12,),
+                          Image.asset(
+                            display_products[index].productImage,
+                            width: 100,
+                          ),
+                          SizedBox(
+                            width: 12,
+                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(display_products[index].productName,style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Color(0xff1B1B1B)
-                              ),),
-                              SizedBox(height: 6,),
-                              Text(display_products[index].productDesc,style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff6C6C6C)
-                              ),),
-                              SizedBox(height: 12,),
-                              Text(display_products[index].productHarga,style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Color(0xff1B1B1B)
-                              ),),
-                              SizedBox(height: 12,),
+                              Text(
+                                display_products[index].productName,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Color(0xff1B1B1B)),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                display_products[index].productDesc,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff6C6C6C)),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              Text(
+                                display_products[index].productHarga,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Color(0xff1B1B1B)),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Cart()));
+                                },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Color(0xff0058AB))
-                                  ),
+                                      border:
+                                          Border.all(color: Color(0xff0058AB))),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 11,horizontal: 50),
-                                    child: Text('Tambahkan Ke Keranjang',style: TextStyle(
-                                      color: Color(0xff0058AB),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500
-                                    ),),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 11, horizontal: 50),
+                                    child: Text(
+                                      'Tambahkan Ke Keranjang',
+                                      style: TextStyle(
+                                          color: Color(0xff0058AB),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 24,),
+                              SizedBox(
+                                height: 24,
+                              ),
                             ],
                           ),
-                          Icon(LucideIcons.moreVertical,color: Color(0xff1B1B1B),)
+                          Icon(
+                            LucideIcons.moreVertical,
+                            color: Color(0xff1B1B1B),
+                          )
                         ],
                       ),
                       // trailing: Icon(LucideIcons.moreVertical,color: Color(0xff1B1B1B),),

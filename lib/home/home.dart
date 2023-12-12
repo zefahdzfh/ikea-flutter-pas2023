@@ -18,6 +18,36 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int myIndex = 0;
+  bool _showTextField = true;
+  bool _showSearchIcon = false;
+  ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {  
+    final double currentScroll = _scrollController.position.pixels;
+    if (currentScroll > 100 && _showTextField) {
+      setState(() {
+        _showTextField = false;
+        _showSearchIcon = true;
+      });
+    } else if (currentScroll <= 100 && !_showTextField) {
+      setState(() {
+        _showTextField = true;
+        _showSearchIcon = false;
+      });
+    }
+  }
 
   final List<Widget> _pages = [
     Home(),
@@ -27,33 +57,52 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Image.asset(
-            'assets/ikea.png',
-            width: 85,
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                LucideIcons.bell,
-                color: Color(0xff1B1B1B),
-              ),
+        body: CustomScrollView(
+      controller: _scrollController,
+      slivers: <Widget>[
+        SliverAppBar(
+            elevation: 0,
+            floating: false, // Atur true jika Anda ingin AppBar muncul saat menggulir ke bawah
+            pinned: true, // Atur true jika Anda ingin AppBar tetap terpaku di atas
+            backgroundColor: Colors.white,
+            title: Image.asset(
+              'assets/ikea.png',
+              width: 85,
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
-              },
-              icon: Icon(
-                LucideIcons.shoppingCart,
-                color: Color(0xff1B1B1B),
+            actions: [
+              if (_showSearchIcon)
+                IconButton(
+                  icon: Icon(
+                    LucideIcons.search,
+                    color: Color(0xff1B1B1B),
+                  ),
+                  onPressed: () {
+                    // setState(() {
+                    //   _showTextField = true;
+                    //   _showSearchIcon = false;
+                    // });
+                  },
+                ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  LucideIcons.bell,
+                  color: Color(0xff1B1B1B),
+                ),
               ),
-            ),
-          ]),
-      body: ListView(
-        children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Cart()));
+                },
+                icon: Icon(
+                  LucideIcons.shoppingCart,
+                  color: Color(0xff1B1B1B),
+                ),
+              ),
+            ]),
+        SliverList(
+            delegate: SliverChildListDelegate([
           Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, top: 24),
             child: Column(
@@ -67,15 +116,16 @@ class _HomeState extends State<Home> {
                       horizontal: 16,
                     ),
                     child: TextFormField(
-                      style: TextStyle(color: Color(0xff1B1B1B), fontSize: 16),
+                      style:
+                          TextStyle(color: Color(0xff1B1B1B), fontSize: 16),
                       decoration: InputDecoration(
                           icon: Icon(
                             LucideIcons.search,
                             color: Color(0xff1B1B1B),
                           ),
                           hintText: 'Cari barang impianmu',
-                          hintStyle:
-                              TextStyle(color: Color(0xff6C6C6C), fontSize: 16),
+                          hintStyle: TextStyle(
+                              color: Color(0xff6C6C6C), fontSize: 16),
                           border: InputBorder.none),
                     ),
                   ),
@@ -122,8 +172,11 @@ class _HomeState extends State<Home> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          products('assets/krokf.png', 'KROKFJORDEN',
-                              'Pengait dengan plastik isap ...', 'Rp99.000'),
+                          products(
+                              'assets/krokf.png',
+                              'KROKFJORDEN',
+                              'Pengait dengan plastik isap ...',
+                              'Rp99.000'),
                           SizedBox(
                             width: 24,
                           ),
@@ -165,7 +218,10 @@ class _HomeState extends State<Home> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        collection(0xff4F707F, 'assets/blav.png', 'BLÅVINGAD',
+                        collection(
+                            0xff4F707F,
+                            'assets/blav.png',
+                            'BLÅVINGAD',
                             'Koleksi yang \nterinspirasi dari lautan untuk menciptakan ...'),
                         collection(
                             0xff5E4238,
@@ -206,15 +262,8 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-        ],
-      ),
-    );
+        ]))
+      ],
+    ));
   }
-
-  
-
-  
-
-  
-  
 }
